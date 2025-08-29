@@ -528,7 +528,7 @@ PHP string work a bit like arrays, starting at zero each character in the string
 
 ```php
 <?php
-$modStr = "CIT2220 Web Development";
+$modStr = "CHT2520 Advanced Web Programming";
 echo "<p>The first character is {$modStr[0]}</p>"; //The first character is C
 echo "<p>The tenth character is {$modStr[9]}</p>"; //The tenth character is e
 ?>

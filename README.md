@@ -11,7 +11,7 @@ git clone https://github.com/CHT2520-web-prog/PHP-basics
 
 This will copy the contents of this repository into your codespace.
 
-- Open the file _intro-to-php.php_
+- In your codespace, open the file _intro-to-php.php_
 - If needed, start Apache i.e. enter `apache2ctl start` in the terminal
 - View the page in a web browser. You should see some text saying 'Welcome to PHP'.
 - Answer the questions in _intro-to-php.php_.
