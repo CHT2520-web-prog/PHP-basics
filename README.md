@@ -2,7 +2,7 @@
 
 ## If you are using Codespaces
 
-- Open your existing codespace (you shouldn't create a new one).
+- Open your existing codespace (you shouldn't create a new one) [https://github.com/codespaces](https://github.com/codespaces).
 - In the terminal enter
 
 ```
