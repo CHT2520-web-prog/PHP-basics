@@ -61,7 +61,7 @@ There are Four simple scalar types:
 
 
 Three compound data types
-* array, object, callable (more on these later)
+* array, object, callable 
 
 And two special types
 * Resource (reference to an external resource e.g. database)
@@ -132,9 +132,9 @@ Here are some examples:
 
 ```php
 <?php
-//As long as $team doesn't equal Chelsea we display the message
+//As long as $team doesn't equal Man Utd we display the message
 $team = "Huddersfield Town";
-if($team !== "Chelsea"){
+if($team !== "Man Utd"){
     echo 'Good choice';
 }
 ?>
@@ -171,7 +171,6 @@ if($score >= 60 && $score < 70){
 ```php
 <?php
 //if $uName has a value of Bill or Bob the message is displayed
-$uName = "Ben";
 if($uName === "Bill" || $uName === "Bob"){
     echo "Welcome {$uName}";
 }
@@ -222,29 +221,6 @@ switch ($module) {
 
 ```
 
-## Mixing HTML and PHP
-It is common practice to mix HTML and PHP. Here's an example:
-```php
-<?php
-if($logged_in === false){
-?>
-    <form action="login.php" method="POST">
-    <label for="user_name">Username:</label><input type="text" name="user_name" id="user_name">
-    <label for="password">Password:</label><input type="password" name="password" id="password">
-    <input type="submit">
-    </form>
-<?php
-}else{
-?>
-    <h1>Welcome</h1>
-    <p>We hope you find this site interesting and informative.</p>
-<?php
-}
-?>
-```
-
-* Take a couple of minutes to look where the curly brackets and PHP tags are. The different parts of the conditional statement are interspersed with HTML.
-
 ## Loops
 These work in a similar way to many other programming languages - Java, JavaScript etc.
 
@@ -264,7 +240,7 @@ This will output the numbers 10,11,12,13,14,15,16,17,18,19
 Here's a for loop:
 ```php
 <?php
-for($i=1;$i<=10;$i++){
+for($i=1; $i<=10; $i++){
     echo "{$i}<br>";
 }
 ?>
@@ -277,13 +253,8 @@ This will output the numbers 1,2,3,4,5,6,7,8,9,10
 * Arrays are  dynamic, we can add and remove elements as we wish.
 
 ### Creating arrays
-We can create arrays by using the array keyword:
-```php
-<?php
-$nameOfArray = array('value1','value2','value3','value4');
-?>
-```
-Since PHP 5.4, arrays can also be created simply by using square brackets:
+Arrays can  be created simply by using square brackets:
+
 ```php
 <?php
 $nameOfArray = ['value1','value2','value3','value4'];
@@ -397,7 +368,7 @@ To create an associative array:
 
 ```php
 <?php
-$nameOfArray = ["key"=>"value", "key"=>"value", "key"=>"value"];
+$nameOfArray = ["key1"=>"value1", "key2"=>"value2", "key3"=>"value3"];
 ?>
 ```
 Here's a specific example:
@@ -457,7 +428,7 @@ We can output the data as an HTML table (or any other HTML structure):
 ```php
 <?php
 echo "<table>";
-echo "<tr><th>Name</th><th>Population</th><tr>";
+echo "<tr><th>Name</th><th>Population</th></tr>";
 foreach($countries as $country)
 {
 
@@ -483,7 +454,7 @@ The above example of multi-dimensional arrays is an important one to understand.
 ### Array functions
 There are lots of functions that can help us work with arrays e.g. are some examples:
 * *count()* Tells us the number of items in an array
-* *in_array()* Tells is a value exists in an array
+* *in_array()* Tells us if a value exists in an array
 * *array_unshift()* Inserts items at the start of an array
 * *sort()* Sorts an array alphabetically or numerically
 
@@ -516,7 +487,7 @@ foreach($countries as $country)
 {
     if($country["name"]==="France" || $country["name"]==="Italy")
     {
-        array_push($countriesVisited,$country);
+        array_push($countriesVisited,$country["name"]);
     }
 }
 print_r($countriesVisited); //Array ( [0] => France [1] => Italy )
@@ -524,7 +495,7 @@ print_r($countriesVisited); //Array ( [0] => France [1] => Italy )
 ```
 
 ## PHP strings
-PHP string work a bit like arrays, starting at zero each character in the string is numbered:
+PHP strings work a bit like arrays, starting at zero each character in the string is numbered:
 
 ```php
 <?php
@@ -534,7 +505,7 @@ echo "<p>The tenth character is {$modStr[9]}</p>"; //The tenth character is e
 ?>
 ```
 PHP features lots of useful string functions. Again see php.net for complete info. Here are some examples:
-* *strnlen()* Tells us the number of characters in a string
+* *strlen()* Tells us the number of characters in a string
 * *str_word_count()* Tells us the number of words in a string
 * *substr()* Cuts out part of a string
 * *strpos()* Finds the position of a word within a string
@@ -551,6 +522,333 @@ $msg = str_replace("CHP2524",$modStr,$msg);
 echo "<p>{$msg}</p>"; //CHT2520 is my favourite module
 ?>
 ```
+
+## Functions
+
+A function is simply group of statements that we give a name to. Here's an example:
+
+```php
+function display_details():void{
+    echo "<ul>";
+    echo "<li>Jane Jones</li>";
+    echo "<li>19</li>";
+    echo "<li>IT</li>";
+    echo "</ul>";
+}
+
+```
+
+The function name should always describe what the function does e.g. this function, _display_details_, prints someone's details.
+
+### Calling a function
+
+To run the code in a function we write the name of the function followed by parentheses(curved brackets).
+
+```php
+function display_details():void{
+    echo "<ul>";
+    echo "<li>Jane Jones</li>";
+    echo "<li>19</li>";
+    echo "<li>IT</li>";
+    echo "</ul>";
+}
+display_details(); //this line of code calls the function
+```
+
+This would output
+
+```html
+<ul>
+  <li>Jane Jones</li>
+  <li>19</li>
+  <li>IT</li>
+</ul>
+```
+
+### Arguments and parameters
+
+We can pass data to a function, we do this using an argument. 
+
+```php
+function display_details(string $name):void{
+    echo "<ul>";
+    echo "<li>$name</li>";
+    echo "<li>19</li>";
+    echo "<li>IT</li>";
+    echo "</ul>";
+}
+
+display_details("Sarah Smith");
+```
+
+Outputs:
+
+```html
+<ul>
+  <li>Sarah Smith</li>
+  <li>19</li>
+  <li>IT</li>
+</ul>
+```
+
+When the function is called, the text 'Sarah Smith' (the argument) is assigned to the variable _$name_ (the parameter).
+Arguments allow us to customise a function. The function can produce a different output each time we call it.
+
+```php
+function display_details(string $name):void{
+    echo "<ul>";
+    echo "<li>{$name}</li>";
+    echo "<li>19</li>";
+    echo "<li>IT</li>";
+    echo "</ul>";
+}
+
+display_details("Sarah Smith");
+display_details("Sadiah Iqbal");
+display_details("Ania Kowalski");
+
+```
+
+Outputs:
+
+```html
+<ul>
+  <li>Sarah Smith</li>
+  <li>19</li>
+  <li>IT</li>
+</ul>
+
+<ul>
+  <li>Sadiah Iqbal</li>
+  <li>19</li>
+  <li>IT</li>
+</ul>
+
+<ul>
+  <li>Ania Kowalski</li>
+  <li>19</li>
+  <li>IT</li>
+</ul>
+```
+
+#### Multiple arguments
+
+We can use several arguments. We separate the arguments and parameters with commas.
+
+```php
+function display_details(string $name, int $age, string $course):void{
+    echo "<ul>";
+    echo "<li>{$name}</li>";
+    echo "<li>{$age}</li>";
+    echo "<li>{$course}</li>";
+    echo "</ul>";
+}
+display_details("Sarah Smith", 21, "Computing");
+
+```
+
+Outputs:
+
+```html
+<ul>
+  <li>Sarah Smith</li>
+  <li>21</li>
+  <li>Computing</li>
+</ul>
+```
+
+#### Optional arguments
+
+We can make arguments optional by providing a default value for the parameter. In this example _$course_ is given a default value of "IT".
+
+Optional parameters must come after required parameters.
+
+```php
+function display_details(string $name, int $age, string $course="IT"):void {
+    echo "<ul>";
+    echo "<li>{$name}</li>";
+    echo "<li>{$age}</li>";
+    echo "<li>{$course}</li>";
+    echo "</ul>";
+}
+display_details("Bill Brown", 21, "Computing");
+display_details("Sarah Smith", 27);
+```
+
+In the second function call, a third argument isn't specified so it defaults to _IT_.
+
+```html
+<ul>
+  <li>Bill Brown</li>
+  <li>21</li>
+  <li>Computing</li>
+</ul>
+
+<ul>
+  <li>Sarah Smith</li>
+  <li>27</li>
+  <li>IT</li>
+</ul>
+```
+
+### Arrays as arguments
+We can pass any type of variable as an argument. This example uses an array.
+
+```php
+function printArrayAsList(array $arr):void
+{
+    echo "<ul>";
+    foreach($arr as $item){
+        echo "<li>";
+        echo $item;
+        echo "</li>";
+    }
+    echo "</ul>";
+}
+printArrayAsList( ["Sarah", "Sadia", "Ania", "Bill"] );
+```
+
+Outputs:
+
+```html
+<ul>
+  <li>Sarah</li>
+  <li>Sadia</li>
+  <li>Ania</li>
+  <li>Bill</li>
+</ul>
+```
+
+### Returning values
+
+As well accepting 'input' via parameters, functions can also produce 'output'. They can send data back using a _return_ statement. The return statement sends a value back to the point in the script the function was called from. In this example, a value of 8 is returned and assigned to the variable `$numDoubled`.
+
+```php
+function doubleIt(int $num):int
+{
+    $double=$num*2;
+    return $double;
+}
+$num = 4;
+$numDoubled = doubleIt($num);
+echo "{$num} doubled is {$numDoubled}"; //4 doubled is 8
+```
+
+- The function declaration (the first line of the function) can specify the type of data that is returned. In this case an integer is returned so we specify `:int`.
+- If a function doesn't return a value, we specify `:void`. See the previous examples.
+
+In this next example the return is used in an _if_ statement.
+
+```php
+function old_enough(int $age):bool
+{
+        if($age >= 17){
+            return true;
+        }else{
+            return false;
+        }
+}
+$age=21;
+if(old_enough($age)){
+        echo "You're old enough to drive";
+}
+```
+
+Here's another example that tells us if a file is an image.
+
+```php
+function isImage(string $filename):bool
+{
+    $fileExt = substr($filename, strrpos($filename, '.') + 1); //gets the filename extension from the string e.g. png
+    if($fileExt==="png" || $fileExt==="jpg" || $fileExt==="jpeg"){
+        return true;
+    }
+    return false;
+}
+
+var_dump(isImage("test.png")); //true
+var_dump(isImage("somefile.jpeg")); //true
+var_dump(isImage("anotherfile.php")); //false
+var_dump(isImage("anyfile.jpg")); //true
+
+```
+
+Returning values is often a better idea than running `echo` statements from within a function. It allows the function to be used more flexibly. Here's the example from earlier re-written using a _return_ statement.
+
+```php
+function hasPassed(int $mark):bool
+{
+    if($mark>=40){
+        return true;
+    }else{
+        return false;
+    }
+}
+if(hasPassed(45)){
+    echo "Well done";
+}else{
+    echo "Hard luck";
+}
+```
+
+### Returning arrays
+
+We can return any type of data we want. This example returns an array.
+
+```php
+function searchCountriesByContinent(string $searchTerm):array
+{
+    $countries = [
+      ["name"=>"Germany", "capital"=>"Berlin", "continent"=>"Europe"],
+      ["name"=>"France", "capital"=>"Paris", "continent"=>"Europe"],
+      ["name"=>"Japan", "capital"=>"Tokyo", "continent"=>"Asia"],
+      ["name"=>"Italy", "capital"=>"Rome", "continent"=>"Europe"]
+    ];
+    $matches = [];
+    foreach($countries as $country){
+        if($country["continent"] === $searchTerm){
+            $matches[] = $country;
+        }
+    }
+    return $matches;
+}
+$matchingCountries = searchCountriesByContinent("Europe");
+
+foreach($matchingCountries as $country){
+    echo "<p>{$country["name"]}</p>";
+}
+
+```
+
+### Variable scope
+
+Variables declared inside a function are only available to that function
+
+```php
+function getName():void{
+    $name = "Fred";
+    echo $name;
+}
+
+getName(); //outputs Fred
+echo $name; //causes an error : undefined variable
+```
+
+- By default variables declared outside a function aren't available to the function
+- We need to declare the variable as _global_ for the function to recognise it
+
+```php
+$name="Mike";
+function tellMeStuff():void{
+    global $name; //need to declare as global to access the existing $name variable
+    echo $name; //outputs Mike
+}
+tellMeStuff();
+```
+- Global variables are often considered bad programming practice as they tie the function to only being used in the presence of the global variables
+- Ideally, functions should work independently. They can then be used in any application without changing the code (the principle of 'Loose coupling')
+
+
 
 ## More info
 * http://php.net/
