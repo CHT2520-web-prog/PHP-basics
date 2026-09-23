@@ -63,8 +63,8 @@ $assign2 = 78;
 // The following PHP code assigns a random number value to the variable $units. Uncomment the code and write some additional PHP code that will calculate and output the cost of a gas bill based on the value of $units.
 
 
-$units = rand(0,2000);
-echo "<p>Units has a value of {$units}.</p>";
+// $units = rand(0,2000);
+// echo "<p>Units has a value of {$units}.</p>";
 
 
 
@@ -109,7 +109,7 @@ $moduleStr = "CHT2520 Advanced Web Programming";
 
 
 // 10. Have a look in the functions.php file. The function printDetails() prints details about a film.
-// a) Uncommented the following line that will call the printDetails() function
+// a) Uncommented the following line that will call the printDetails() function. Test this works. 
 // b) Make several function calls to output details of different films.
 // c) Modify the function so that you can pass a third argument that specifies the duration of the film. Test this works.
 
