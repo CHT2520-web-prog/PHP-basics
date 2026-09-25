@@ -202,49 +202,6 @@ if ($score > 100) {
 ?>
 ```
 
-A more compact approach is to use a *switch* statement:
-
-```php
-<?php
-$module = "CHT2520";
-switch ($module) {
-    case "CFT2111":
-        echo "20 credits";
-        break;
-    case "CHP2524":
-        echo "40 credits";
-        break;
-    case "CHT2520":
-        echo "20 credits";
-        break;
-}
-?>
-
-```
-
-## Mixing HTML and PHP
-It is common practice to mix HTML and PHP. Here's an example:
-```php
-<?php
-if($logged_in === false){
-?>
-    <form action="login.php" method="POST">
-    <label for="user_name">Username:</label><input type="text" name="user_name" id="user_name">
-    <label for="password">Password:</label><input type="password" name="password" id="password">
-    <input type="submit">
-    </form>
-<?php
-}else{
-?>
-    <h1>Welcome</h1>
-    <p>We hope you find this site interesting and informative.</p>
-<?php
-}
-?>
-```
-
-* Take a couple of minutes to look where the curly brackets and PHP tags are. The different parts of the conditional statement are interspersed with HTML.
-
 ## Loops
 These work in a similar way to many other programming languages - Java, JavaScript etc.
 
@@ -264,7 +221,7 @@ This will output the numbers 10,11,12,13,14,15,16,17,18,19
 Here's a for loop:
 ```php
 <?php
-for($i=1;$i<=10;$i++){
+for($i=1; $i<=10; $i++){
     echo "{$i}<br>";
 }
 ?>

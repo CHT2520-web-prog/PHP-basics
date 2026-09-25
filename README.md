@@ -14,7 +14,7 @@ This will copy the contents of this repository into your codespace.
 - In your codespace, open the file _index.php_
 - In the terminal navigate to the PHP-basics directory
     ```
-    cd PHP-basic
+    cd PHP-basics
     ```
 - Start PHP's built-in web server
     ```
